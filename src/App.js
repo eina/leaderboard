@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+//CSS
+import { Table } from 'react-bootstrap';
 import './App.css';
+//Components
+import UserList from './components/user-list'
+
+const URL = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+
+// axios.get(URL)
+//   .then(function (response) {
+//     console.log(response.data);
+//   })
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = { user: [] };
+
+    axios.get(URL)
+      .then((response) =>{
+        this.setState({ user: response.data });
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Camper</th>
+              <th>Points in past 30 days</th>
+              <th>All time points</th>
+            </tr>            
+          </thead>
+          <caption><h1>freeCodeCamp Leaderboard</h1></caption>
+          <UserList users={this.state.user}/>
+        </Table>
       </div>
     );
   }
