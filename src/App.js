@@ -32,8 +32,8 @@ class App extends Component {
             <tr>
               <th>#</th>
               <th>Camper</th>
-              <th>Points in past 30 days</th>
-              <th>All time points</th>
+              <th>Points in past 30 days <button className="btn">Sort</button></th>
+              <th>All time points <button className="btn">Sort</button></th>
             </tr>            
           </thead>
           <caption><h1>freeCodeCamp Leaderboard</h1></caption>

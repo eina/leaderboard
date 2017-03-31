@@ -6,7 +6,7 @@ const UserList = (props) => {
     let profile_url = 'https://www.freecodecamp.com/' + user.username;
 
     return (
-      <tr key={i}>
+      <tr key={i} className="users">
         <td>{i + 1}</td>
         <td>
           <span><img src={user.img} alt={alt} className="profile-img"/></span>

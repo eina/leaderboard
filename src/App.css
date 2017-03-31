@@ -2,3 +2,7 @@
   width: 50px;
   margin-right: 20px;
 }
+
+.table tbody > tr.users > td {
+  vertical-align: middle;
+}
